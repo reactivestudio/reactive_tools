@@ -1,0 +1,4 @@
+name = Reactive Tools
+description = Helping tools for development and project scaffolding.
+package = Reactive
+core = 7.x

@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file reactive_tools.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Form builder.
+ */
+function reactive_tools_settings_form($form, &$form_state) {
+  $form['reactive_tools_variable_foo'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Foo'),
+    '#default_value' => variable_get('reactive_tools_variable_foo', 42),
+    '#required' => TRUE,
+  );
+  
+  // TODO! You probably don't need validation or submit handlers if using system_settings_form().
+  return system_settings_form($form);
+}
+
+/**
+ * Form validate handler.
+ */
+function reactive_tools_settings_form_validate($form, &$form_state) {
+  if ($form_state['values']['element'] != 'hello') {
+    form_set_error('element', t('Please say hello?'));
+  }
+}
+
+/**
+ * Form submit handler.
+ */
+function reactive_tools_settings_form_submit($form, &$form_state) {
+
+}
+
+/**
+ * Implements hook_menu().
+ */
+function reactive_tools_menu() {
+  $items = array();
+  
+  $items['admin/config/reactive_tools'] = array(
+    'title' => 'Administer Reactive Tools',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('reactive_tools_settings_form'),
+    'access arguments' => array('administer reactive_tools'),
+  );
+  return $items;
+}
