@@ -6,7 +6,7 @@
         <?php print (isset($o['size']))? 'data-size="'.$o['size'].'"': ''; ?>
         <?php print (isset($o['fx']))? 'data-fx="'.$o['fx'].'"': ''; ?>
         class="sidy__panel" id="<?php print $name; ?>">
-            <?php print render($page['panel_'.$name]); ?>
+            <?php print render($page['{{ LAYOUT }}_'.$name]); ?>
         </div>
     <?php }?>
 

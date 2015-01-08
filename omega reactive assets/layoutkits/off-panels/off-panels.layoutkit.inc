@@ -15,8 +15,8 @@ regions[footer]         = Footer
 ; Stylesheets
 stylesheets[all][] = css/layouts/{{ LAYOUT SANITIZED }}/{{ LAYOUT SANITIZED }}.layout.css
 stylesheets[all][] = css/layouts/{{ LAYOUT SANITIZED }}/{{ LAYOUT SANITIZED }}.layout.no-query.css
-stylesheets[all][] = libraries/sidy.js/dist/sidy.css
+stylesheets[all][] = libraries/Sidy/dist/sidy.css
 
 ; Javascript
-scripts[] = libraries/sidy.js/dist/sidy.js
+scripts[] = libraries/Sidy/dist/sidy.js
 scripts[] = js/layouts/{{ LAYOUT SANITIZED }}/{{ LAYOUT SANITIZED }}.js
