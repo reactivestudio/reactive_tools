@@ -1,0 +1,6 @@
+node_modules
+__*
+.sass-cache
+src/.sass-cache
+.DS_Store
+.git
