@@ -13,6 +13,15 @@ group :development do
     end
   end
 
+  ## Uncomment this if you wish to use svg2png convertion
+  guard :shell do
+   puts 'Monitoring svg files.'
+
+   watch(%r{.+\.(svg)$}) { |m|
+     puts 'Change detected: ' + m[0]
+   }
+  end
+
   ## Uncomment this if you wish to clear the theme registry every time you
   ## change one of the relevant theme files.
   #guard :shell do
