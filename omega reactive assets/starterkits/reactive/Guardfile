@@ -17,15 +17,24 @@ group :development do
   guard :shell do
     puts 'Monitoring svg files.'
 
-    watch (%r{.+\.(svg)}) do |m|
+    watch (%r{.[\w-]+\.svg}) do |m|
       svgfile = m[0]
       pngfile = svgfile.gsub(/svg$/, 'png')
-      png_normal = pngfile.gsub(/(\/\w+.png)$/, '/png\1')
-      png_retina = pngfile.gsub(/(\/\w+.png)$/, '/png_2x\1')
+      png = pngfile.gsub(/(\/[\w-]+.png)$/, '/png')
+      png_2x = pngfile.gsub(/(\/[\w-]+.png)$/, '/png_2x')
+      png_normal = pngfile.gsub(/(\/[\w-]+.png)$/, '/png\1')
+      png_retina = pngfile.gsub(/(\/[\w-]+.png)$/, '/png_2x\1')
 
       puts 'Change detected: ' + svgfile
-      system "convert -background none -density 72 #{svgfile} #{png_normal}"
-      system "convert -background none -density 144 #{svgfile} #{png_retina}"
+      if File.file?(svgfile)
+        system "mkdir -p #{png}"
+        system "mkdir -p #{png_2x}"
+        system "convert -background none -density 72 #{svgfile} #{png_normal}"
+        system "convert -background none -density 144 #{svgfile} #{png_retina}"
+      else
+        system "rm #{png_normal}"
+        system "rm #{png_retina}"
+      end
     end
   end
 
