@@ -13,8 +13,7 @@ group :development do
     end
   end
 
-  ## Uncomment this if you wish to use svg to png auto-convertion
-  ## by ImageMagick
+  ## Uncomment this if you wish to use auto converting svg to png
   guard :shell do
     puts 'Monitoring svg files.'
 

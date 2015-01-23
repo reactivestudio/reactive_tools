@@ -29,7 +29,7 @@ require 'breakpoint'
 require 'singularitygs'
 require 'susy'
 require 'sass-globbing'
-require 'SassyIcons'
+require 'compass-icons'
 
 ##
 ## You probably don't need to edit anything below this.
